@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChipComponent } from '../../../../shared/components/chip/chip.component';
 
 const OS_CATEGORIES = [
   { id: 'legal', name: 'Análisis Legal', icon: '⚖️' },
@@ -25,7 +24,7 @@ interface RecentAnalysis {
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
   standalone: true,
-  imports: [CommonModule, ChipComponent],
+  imports: [CommonModule],
 })
 export class OSSidebarComponent {
   @Input() activeCategory: string = 'legal';

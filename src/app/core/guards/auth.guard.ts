@@ -10,10 +10,13 @@ class AuthGuardService {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(): boolean {
-    if (this.authService.isAuthenticated()) {
+    // Check localStorage for auth token to determine if authenticated
+    const token = localStorage.getItem('authToken');
+
+    if (token) {
       return true;
     } else {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/']);
       return false;
     }
   }

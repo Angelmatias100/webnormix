@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent } from '../../../../shared/components/button/button.component';
 
 export interface ExamplePrompt {
   icon: string;
@@ -10,7 +9,7 @@ export interface ExamplePrompt {
 @Component({
   selector: 'app-empty-state',
   standalone: true,
-  imports: [CommonModule, ButtonComponent],
+  imports: [CommonModule],
   templateUrl: './empty-state.component.html',
   styleUrls: ['./empty-state.component.scss']
 })
