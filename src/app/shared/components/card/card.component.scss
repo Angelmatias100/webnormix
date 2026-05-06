@@ -1,0 +1,10 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.card {
+  @include card;
+}
+
+.card-elev {
+  @include card-elev;
+}

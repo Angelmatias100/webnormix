@@ -1,0 +1,48 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.btn-primary {
+  @include button-primary;
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line-2);
+  color: var(--fg);
+  transition: all 0.18s ease;
+
+  &:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--line-3);
+  }
+}
+
+.btn-cyan {
+  background: rgba(0, 194, 255, 0.10);
+  border: 1px solid rgba(0, 194, 255, 0.28);
+  color: var(--cyan);
+  transition: all 0.18s ease;
+
+  &:hover:not(:disabled) {
+    background: rgba(0, 194, 255, 0.16);
+  }
+}
