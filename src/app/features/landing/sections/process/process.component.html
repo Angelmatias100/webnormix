@@ -1,0 +1,26 @@
+<section class="process">
+  <div class="process__container">
+    <div class="process__header">
+      <span class="process__eyebrow">CÓMO FUNCIONA</span>
+      <h2 class="process__title">Nuestro Proceso</h2>
+      <p class="process__description">
+        Descubre cómo Normix analiza y categoriza contenido normativo
+      </p>
+    </div>
+
+    <div class="process__grid">
+      <div
+        class="process__step"
+        *ngFor="let step of processes(); let first = first"
+        [class.process__step--first]="first"
+      >
+        <div class="process__step-number">{{ step.n }}</div>
+        <div class="process__step-icon">
+          <i [class]="'icon icon-' + step.icon"></i>
+        </div>
+        <h3 class="process__step-title">{{ step.title }}</h3>
+        <p class="process__step-description">{{ step.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>

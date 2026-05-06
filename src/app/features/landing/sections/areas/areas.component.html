@@ -1,0 +1,25 @@
+<section class="areas">
+  <div class="areas__container">
+    <div class="areas__header">
+      <div class="areas__info">
+        <span class="areas__eyebrow">CATEGORÍAS</span>
+        <h2 class="areas__title">Áreas Regulatorias</h2>
+        <p class="areas__description">
+          Explora las principales áreas de cumplimiento normativo
+        </p>
+      </div>
+      <app-btn variant="ghost" (clicked)="onViewAll()">
+        Ver todas las categorías
+      </app-btn>
+    </div>
+
+    <div class="areas__grid">
+      <app-area-card
+        *ngFor="let area of areas()"
+        [area]="area"
+        [span]="area.featured ? 6 : 3"
+        (click)="onCategoryClick(area.id)"
+      ></app-area-card>
+    </div>
+  </div>
+</section>

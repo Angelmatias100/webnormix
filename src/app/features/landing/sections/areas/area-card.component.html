@@ -1,0 +1,29 @@
+<div
+  class="area-card"
+  [ngClass]="span === 6 ? 'area-card--span-6' : 'area-card--span-3'"
+  (mouseenter)="hover.set(true)"
+  (mouseleave)="hover.set(false)"
+>
+  <div class="area-card__header">
+    <div class="area-card__icon">
+      <i [class]="'icon icon-' + area.icon"></i>
+    </div>
+    <div class="area-card__count">
+      {{ formatCount(area.count) }}
+    </div>
+  </div>
+
+  <div class="area-card__content">
+    <h3 class="area-card__title">{{ area.title }}</h3>
+    <p class="area-card__description" *ngIf="area.description">
+      {{ area.description }}
+    </p>
+  </div>
+
+  <div class="area-card__footer" *ngIf="area.featured">
+    <button class="area-card__cta">
+      Ver más
+      <i class="icon icon-arrow-right"></i>
+    </button>
+  </div>
+</div>

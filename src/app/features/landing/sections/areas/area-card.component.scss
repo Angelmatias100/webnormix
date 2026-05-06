@@ -1,0 +1,146 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/typography';
+@import '../../../../../styles/mixins';
+
+.area-card {
+  @include card;
+  padding: var(--spacing-lg);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 194, 255, 0.32);
+    background: rgba(0, 194, 255, 0.04);
+  }
+
+  &--span-6 {
+    grid-column: span 6;
+
+    .area-card__icon {
+      width: 56px;
+      height: 56px;
+
+      i {
+        font-size: 32px;
+      }
+    }
+
+    .area-card__title {
+      @extend .h3;
+      font-size: 24px;
+    }
+
+    .area-card__description {
+      @extend .body-md;
+    }
+  }
+
+  &--span-3 {
+    grid-column: span 3;
+
+    .area-card__icon {
+      width: 44px;
+      height: 44px;
+
+      i {
+        font-size: 24px;
+      }
+    }
+
+    .area-card__title {
+      @extend .body-lg;
+      font-weight: 600;
+    }
+
+    .area-card__description {
+      @extend .body-sm;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    background: rgba(0, 194, 255, 0.08);
+    border: 1px solid rgba(0, 194, 255, 0.2);
+    color: var(--cyan);
+    flex-shrink: 0;
+
+    i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__count {
+    @extend .label;
+    font-size: 11px;
+    color: var(--cyan);
+    background: rgba(0, 194, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__title {
+    margin: 0;
+    color: var(--fg);
+  }
+
+  &__description {
+    margin: 0;
+    color: var(--fg-3);
+    line-height: 1.6;
+  }
+
+  &__footer {
+    margin-top: auto;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--line);
+  }
+
+  &__cta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    color: var(--cyan);
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 0;
+    transition: all 0.2s ease;
+
+    &:hover {
+      gap: 12px;
+      color: #66DAFF;
+    }
+
+    i {
+      display: inline-block;
+      font-size: 14px;
+    }
+  }
+}
