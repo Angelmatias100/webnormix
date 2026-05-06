@@ -1,0 +1,38 @@
+<div class="empty-state">
+  <div class="icon-container">
+    <i class="material-symbols-outlined">psychology</i>
+  </div>
+
+  <h1>Iniciar nuevo análisis regulatorio.</h1>
+
+  <p class="description">
+    Utiliza el asistente para analizar casos, interpretar leyes y obtener recomendaciones basadas en
+    normativas vigentes.
+  </p>
+
+  <div class="examples-section">
+    <label class="examples-label">Ejemplos de consulta</label>
+    <div class="examples-grid">
+      <button
+        *ngFor="let example of examples"
+        class="example-card"
+        (click)="onExampleClick(example.text)"
+        type="button"
+      >
+        <i class="material-symbols-outlined">{{ example.icon }}</i>
+        <span>{{ example.text }}</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="security-notice">
+    <i class="material-symbols-outlined">shield_lock</i>
+    <div class="notice-content">
+      <p class="notice-title">Comunicación Segura</p>
+      <p class="notice-text">
+        Tus consultas están protegidas con encriptación de extremo a extremo (E2E). Solo tú y el
+        sistema puedes ver el contenido.
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="analysis-block" [style.--block-color]="blockColor" [attr.data-kind]="kind">
+  <div class="block-header">
+    <div class="header-left">
+      <i class="material-symbols-outlined">{{ iconName }}</i>
+      <h3>{{ title }}</h3>
+    </div>
+    <div class="header-right" *ngIf="confidence !== undefined || protocol">
+      <div class="metadata" *ngIf="protocol">
+        <span class="protocol-label">{{ protocol }}</span>
+      </div>
+      <div class="metadata" *ngIf="confidence !== undefined">
+        <app-confidence-meter [percentage]="confidence * 100"></app-confidence-meter>
+      </div>
+    </div>
+  </div>
+
+  <div class="block-content">
+    <ng-content></ng-content>
+  </div>
+</div>

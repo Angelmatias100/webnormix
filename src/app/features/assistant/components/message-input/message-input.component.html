@@ -1,0 +1,61 @@
+<div
+  class="message-input"
+  (drop)="handleDrop($event)"
+  (dragover)="handleDragOver($event)"
+  (dragleave)="handleDragLeave($event)"
+  [class.dragging]="isDragging()"
+>
+  <!-- Drop Zone -->
+  <div class="drop-zone" *ngIf="isDragging()">
+    <div class="drop-zone-content">
+      <i class="material-symbols-outlined">cloud_upload</i>
+      <p>Suelta archivos aquí para cargar</p>
+    </div>
+  </div>
+
+  <!-- File List -->
+  <div class="file-list" *ngIf="files().length > 0">
+    <app-chip *ngFor="let file of files(); let i = index" variant="cyan">
+      <span>{{ file.name }}</span>
+      <button type="button" class="remove-file" (click)="removeFile(i)" aria-label="Eliminar archivo">
+        ✕
+      </button>
+    </app-chip>
+  </div>
+
+  <!-- Input Row -->
+  <div class="input-row">
+    <button type="button" class="icon-button attach-btn" title="Adjuntar archivo" aria-label="Adjuntar archivo">
+      <i class="material-symbols-outlined">attach_file</i>
+    </button>
+
+    <button
+      type="button"
+      class="icon-button voice-btn"
+      title="Grabar audio"
+      aria-label="Grabar audio"
+    >
+      <i class="material-symbols-outlined">mic</i>
+    </button>
+
+    <input
+      #textInput
+      type="text"
+      class="text-input"
+      placeholder="Describe tu consulta regulatoria..."
+      [(ngModel)]="draft"
+      (keydown)="onKeyDown($event)"
+      [disabled]="isDragging()"
+    />
+
+    <app-btn
+      class="send-btn"
+      variant="cyan"
+      [disabled]="!draft().trim()"
+      type="button"
+      (clicked)="handleSend()"
+    >
+      <i class="material-symbols-outlined">send</i>
+    </app-btn>
+  </div>
+</div>

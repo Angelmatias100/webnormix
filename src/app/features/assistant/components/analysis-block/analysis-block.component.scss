@@ -1,0 +1,133 @@
+.analysis-block {
+  --block-color: #22d3ee;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #ffffff;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--block-color-rgb), 0.05),
+    rgba(var(--block-color-rgb), 0.02)
+  );
+  border-bottom: 1px solid rgba(34, 211, 238, 0.1);
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+
+    i {
+      font-size: 20px;
+      color: var(--block-color);
+      flex-shrink: 0;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: #0f172a;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+}
+
+.metadata {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #64748b;
+
+  .protocol-label {
+    padding: 2px 8px;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 4px;
+    color: #6366f1;
+    font-weight: 500;
+  }
+}
+
+.block-content {
+  padding: 16px;
+  color: #334155;
+  font-size: 13px;
+  line-height: 1.6;
+
+  p {
+    margin: 0 0 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul,
+  ol {
+    margin: 8px 0;
+    padding-left: 20px;
+
+    li {
+      margin-bottom: 4px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Color variants using CSS custom properties
+.analysis-block[data-kind='classification'] {
+  --block-color-rgb: 34, 211, 238;
+}
+
+.analysis-block[data-kind='laws'] {
+  --block-color-rgb: 6, 182, 212;
+}
+
+.analysis-block[data-kind='recommendation'] {
+  --block-color-rgb: 139, 92, 246;
+}
+
+.analysis-block[data-kind='next'] {
+  --block-color-rgb: 245, 158, 11;
+}
+
+@media (max-width: 640px) {
+  .block-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .header-right {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .block-content {
+    padding: 12px;
+    font-size: 12px;
+  }
+}
