@@ -1,0 +1,141 @@
+<section class="hero">
+  <!-- Ambient glow background -->
+  <div aria-hidden class="hero__glow"></div>
+  <div aria-hidden class="hero__divider-grid divider-grid"></div>
+
+  <div class="container hero__grid">
+    <!-- LEFT COLUMN -->
+    <div class="hero__left reveal">
+      <!-- Chips -->
+      <div class="hero__chips">
+        <app-chip>Leyes CMF</app-chip>
+        <app-chip>Reclamos financieros</app-chip>
+        <app-chip>Análisis documental</app-chip>
+        <app-chip variant="cyan">IA regulatoria</app-chip>
+      </div>
+
+      <!-- Heading -->
+      <h1 class="hero__title">
+        Inteligencia regulatoria<br />para problemas
+        <span class="hero__gradient">financieros.</span>
+      </h1>
+
+      <!-- Description -->
+      <p class="hero__description">
+        Una plataforma impulsada por IA que ayuda a ciudadanos a entender situaciones
+        financieras, analizar normativa vigente y generar consultas o reclamos
+        correctamente estructurados.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="hero__buttons">
+        <app-btn variant="primary" (clicked)="onNavigate()">
+          Hablar con el asistente
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </app-btn>
+        <app-btn variant="ghost" (clicked)="onDemoClick()">
+          <span class="material-symbols-outlined">play_arrow</span>
+          Ver demo (1 min)
+        </app-btn>
+      </div>
+
+      <!-- Validation badges -->
+      <div class="hero__validation">
+        <div class="hero__validation-label">Datos validados con</div>
+        <div class="hero__validation-items">
+          <span>CMF</span>
+          <span class="hero__separator">·</span>
+          <span>SERNAC</span>
+          <span class="hero__separator">·</span>
+          <span>SBIF</span>
+          <span class="hero__separator">·</span>
+          <span>Ley 21.234</span>
+          <span class="hero__separator">·</span>
+          <span>Ley Fintech 21.521</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN — Analysis Card -->
+    <div class="hero__right reveal">
+      <!-- Layered cards behind -->
+      <div class="hero__card-layer hero__card-layer-1"></div>
+      <div class="hero__card-layer hero__card-layer-2"></div>
+
+      <!-- Main card -->
+      <div class="hero__analysis-card card-elev">
+        <!-- Header bar -->
+        <div class="hero__card-header">
+          <div class="hero__header-left">
+            <app-pulse-dot [size]="6"></app-pulse-dot>
+            <span class="label">Análisis en vivo</span>
+          </div>
+          <div class="mono" style="font-size: 10px; color: var(--fg-4); letter-spacing: 0.08em;">
+            CASE-NMX-9942 · {{ getTimerValue() }}ms
+          </div>
+        </div>
+
+        <!-- Prompt -->
+        <div class="hero__card-prompt">
+          <div class="hero__prompt-avatar">U</div>
+          <div class="hero__prompt-text">
+            Detecté un cargo de <span class="hero__highlight">$450.000</span> en
+            mi tarjeta que no reconozco.
+          </div>
+        </div>
+
+        <!-- Detected normativa -->
+        <div class="hero__card-normativa">
+          <div class="label">Normativa detectada</div>
+          <div class="hero__normativa-item">
+            <div class="hero__normativa-icon">
+              <span class="material-symbols-outlined">gavel</span>
+            </div>
+            <div class="hero__normativa-content">
+              <div class="hero__normativa-title">Ley 21.234</div>
+              <div class="hero__normativa-desc">Responsabilidad de fraudes en pagos</div>
+            </div>
+            <app-chip variant="cyan">Procedente</app-chip>
+          </div>
+        </div>
+
+        <!-- Metadata grid -->
+        <div class="hero__card-metadata">
+          <div class="hero__metadata-cell">
+            <div class="label">Entidad competente</div>
+            <div class="hero__metadata-value">CMF</div>
+            <div class="hero__metadata-desc">Comisión para el Mercado Financiero</div>
+          </div>
+          <div class="hero__metadata-cell">
+            <div class="label">Tipo de evento</div>
+            <div class="hero__metadata-value">
+              <span class="hero__event-indicator"></span>
+              Fraude bancario
+            </div>
+            <div class="hero__metadata-desc">Transacción no reconocida</div>
+          </div>
+        </div>
+
+        <!-- Confidence meter -->
+        <div class="hero__card-confidence">
+          <div class="hero__confidence-label">
+            <span class="label">Confianza del modelo</span>
+            <span class="mono" style="color: var(--cyan); font-weight: 600;">94.2%</span>
+          </div>
+          <app-confidence-meter [percentage]="94.2"></app-confidence-meter>
+        </div>
+
+        <!-- Footer actions -->
+        <div class="hero__card-footer">
+          <div class="mono" style="font-size: 10px; color: var(--fg-4); letter-spacing: 0.08em;">
+            PROTOCOLO CMF-S24.1
+          </div>
+          <div class="hero__footer-chips">
+            <app-chip>Ver normativa</app-chip>
+            <app-chip variant="indigo">Generar reclamo</app-chip>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
