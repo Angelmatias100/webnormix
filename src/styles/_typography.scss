@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+.font-tight {
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-mono {
+  font-family: 'DM Mono', monospace;
+}
+
+.h1 {
+  @extend .font-inter;
+  @extend .font-tight;
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.h2 {
+  @extend .font-inter;
+  @extend .font-tight;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.h3 {
+  @extend .font-inter;
+  @extend .font-tight;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.body-lg {
+  @extend .font-inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body-md {
+  @extend .font-inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body-sm {
+  @extend .font-inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.label {
+  @extend .font-inter;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.mono {
+  @extend .font-mono;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+}

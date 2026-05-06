@@ -25,8 +25,13 @@
               }
             ],
             "styles": [
-              "src/styles.css"
-            ]
+              "src/styles/global.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -82,8 +87,13 @@
               }
             ],
             "styles": [
-              "src/styles.css"
-            ]
+              "src/styles/global.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            }
           }
         }
       }
