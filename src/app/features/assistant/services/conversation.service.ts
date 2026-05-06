@@ -33,4 +33,8 @@ export class ConversationService {
     this._error.set(null);
     this.messages$.next([]);
   }
+
+  sendMessage(message: string): Observable<any> {
+    return this.apiService.post('/conversations/message', { content: message });
+  }
 }
