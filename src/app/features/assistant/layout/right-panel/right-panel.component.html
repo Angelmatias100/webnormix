@@ -1,0 +1,42 @@
+<aside class="right-panel">
+  <div class="panel-header">
+    <div class="header-content">
+      <h2 class="panel-title">Intelligence Panel</h2>
+      <span class="case-id">Caso 9942</span>
+    </div>
+    <button class="settings-btn" (click)="openSettings()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div class="sections-container">
+    <div *ngFor="let section of sections; let i = index" class="section">
+      <button class="section-header" (click)="toggleSection(i)" [class.collapsed]="section.collapsed">
+        <div class="section-title-area">
+          <span class="section-title">{{ section.title }}</span>
+          <app-chip variant="indigo" size="small">{{ section.count }}</app-chip>
+        </div>
+        <svg
+          class="chevron-icon"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+
+      <div class="section-content" *ngIf="!section.collapsed">
+        <div class="items-list">
+          <div *ngFor="let item of section.items" class="list-item">{{ item }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
