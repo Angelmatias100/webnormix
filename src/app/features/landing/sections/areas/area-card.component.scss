@@ -79,24 +79,15 @@
     color: var(--cyan);
     flex-shrink: 0;
 
-    i {
+    .material-symbols-outlined {
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: inherit;
     }
   }
 
-  &__count {
-    @extend .label;
-    font-size: 11px;
-    color: var(--cyan);
-    background: rgba(0, 194, 255, 0.1);
-    padding: 6px 12px;
-    border-radius: var(--radius-sm);
-    white-space: nowrap;
-  }
-
-  &__content {
+&__content {
     flex: 1;
     display: flex;
     flex-direction: column;

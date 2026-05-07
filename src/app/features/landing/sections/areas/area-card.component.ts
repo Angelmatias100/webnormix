@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, Input, HostBinding, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegulatoryArea } from '../../models/landing.model';
 
@@ -13,9 +13,7 @@ export class AreaCardComponent {
   @Input() area!: RegulatoryArea;
   @Input() span: number = 3;
 
-  hover = signal(false);
+  @HostBinding('style.grid-column') get gridColumn() { return `span ${this.span}`; }
 
-  formatCount(count: number): string {
-    return String(count).padStart(3, '0') + ' casos';
-  }
+  hover = signal(false);
 }

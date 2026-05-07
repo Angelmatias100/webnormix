@@ -1,8 +1,8 @@
 <div class="os-shell">
-  <app-top-bar [onBack]="onBack"></app-top-bar>
-  <div class="os-main">
-    <app-sidebar [activeCategory]="activeCategory()" (categoryChange)="onCategoryChange($event)"></app-sidebar>
-    <app-center [mode]="mode()" (messageSend)="onMessage($event)"></app-center>
-    <app-right-panel></app-right-panel>
-  </div>
+  <app-sidebar
+    [activeCategory]="activeCategory()"
+    (categoryChange)="onCategoryChange($event)"
+    (navigateHome)="onBack()"
+  ></app-sidebar>
+  <app-center [mode]="mode()" (messageSend)="onMessage($event)"></app-center>
 </div>

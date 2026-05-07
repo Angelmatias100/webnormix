@@ -127,7 +127,8 @@
     justify-content: center;
     color: var(--cyan);
     margin-bottom: var(--spacing-md);
-    font-size: 28px;
+
+    .material-symbols-outlined { font-size: 28px; }
   }
 
   &__step-title {

@@ -12,7 +12,6 @@ export const routes: Routes = [
     path: 'assistant',
     loadChildren: () => import('./features/assistant/assistant.routes')
       .then(m => m.ASSISTANT_ROUTES),
-    canActivate: [authGuard],
     data: { title: 'Asistente Regulatorio' }
   },
   {

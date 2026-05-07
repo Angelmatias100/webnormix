@@ -17,7 +17,7 @@ export class EmptyStateComponent {
   @Input() examples: ExamplePrompt[] = [
     { icon: 'gavel', text: 'Analizar norma regulatoria específica' },
     { icon: 'description', text: 'Clasificar caso legal complejo' },
-    { icon: 'verify', text: 'Validar cumplimiento normativo' },
+    { icon: 'verified', text: 'Validar cumplimiento normativo' },
     { icon: 'timeline', text: 'Revisar cronograma de plazos' }
   ];
 

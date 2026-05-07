@@ -1,14 +1,15 @@
-import { Component, Input, Output, EventEmitter, HostListener, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { EmptyStateComponent } from '../../components/empty-state/empty-state.component';
+import { MessageStreamComponent } from '../../components/message-stream/message-stream.component';
 
 @Component({
   selector: 'app-center',
   templateUrl: './center.component.html',
   styleUrls: ['./center.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [CommonModule, FormsModule, EmptyStateComponent, MessageStreamComponent],
 })
 export class OSCenterComponent {
   @Input() mode: 'empty' | 'analysis' = 'empty';
@@ -18,51 +19,29 @@ export class OSCenterComponent {
   inputValue = '';
 
   @HostListener('dragover', ['$event'])
-  onDragOver(event: DragEvent) {
-    event.preventDefault();
-    event.stopPropagation();
-    this.isDragOver = true;
-  }
+  onDragOver(e: DragEvent) { e.preventDefault(); this.isDragOver = true; }
 
   @HostListener('dragleave', ['$event'])
-  onDragLeave(event: DragEvent) {
-    event.preventDefault();
-    event.stopPropagation();
-    this.isDragOver = false;
-  }
+  onDragLeave(e: DragEvent) { e.preventDefault(); this.isDragOver = false; }
 
   @HostListener('drop', ['$event'])
-  onDrop(event: DragEvent) {
-    event.preventDefault();
-    event.stopPropagation();
-    this.isDragOver = false;
-
-    const files = event.dataTransfer?.files;
-    if (files) {
-      console.log('Files dropped:', files);
-      // Handle file drop logic here
-    }
-  }
+  onDrop(e: DragEvent) { e.preventDefault(); this.isDragOver = false; }
 
   sendMessage() {
     if (this.inputValue.trim()) {
-      this.messageSend.emit(this.inputValue);
+      this.messageSend.emit(this.inputValue.trim());
       this.inputValue = '';
     }
   }
 
-  onKeyDown(event: KeyboardEvent) {
-    if (event.key === 'Enter' && !event.shiftKey) {
-      event.preventDefault();
-      this.sendMessage();
-    }
+  onExamplePicked(text: string) {
+    this.inputValue = text;
+    this.sendMessage();
   }
 
-  attachFile() {
-    console.log('Attach file');
+  onKeyDown(e: KeyboardEvent) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); this.sendMessage(); }
   }
 
-  recordVoice() {
-    console.log('Record voice');
-  }
+  attachFile() {}
 }

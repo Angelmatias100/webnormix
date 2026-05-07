@@ -1,25 +1,6 @@
 .os-shell {
-  min-height: 100vh;
-  background-color: #0a0a0a;
+  height: 100vh;
+  background-color: var(--color-bg-primary);
   display: flex;
-  flex-direction: column;
-}
-
-.os-main {
-  display: flex;
-  flex: 1;
   overflow: hidden;
-}
-
-// Responsive layout
-@media (max-width: 1180px) {
-  app-sidebar {
-    display: none;
-  }
-}
-
-@media (max-width: 880px) {
-  app-right-panel {
-    display: none;
-  }
 }

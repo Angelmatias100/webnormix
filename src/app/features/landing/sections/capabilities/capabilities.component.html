@@ -66,9 +66,11 @@
       </div>
 
       <!-- Small capability cards -->
-      <div *ngFor="let cap of capabilities()" class="capabilities__card cap-small card-elev">
+      <div *ngFor="let cap of capabilities()" class="capabilities__card cap-small">
         <div class="capabilities__small-card-header">
-          <span class="material-symbols-outlined">{{ cap.icon }}</span>
+          <div class="icon-badge">
+            <span class="material-symbols-outlined">{{ cap.icon }}</span>
+          </div>
           <h4 class="capabilities__small-card-title">{{ cap.title }}</h4>
         </div>
         <p class="capabilities__small-card-description">{{ cap.description }}</p>

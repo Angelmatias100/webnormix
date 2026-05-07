@@ -2,15 +2,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
+  height: 56px;
   padding: 0 var(--spacing-md);
   border-bottom: 1px solid var(--color-border);
   background-color: var(--color-bg-primary);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
   z-index: 100;
   gap: var(--spacing-md);
+  flex-shrink: 0;
 }
 
 .top-bar-left {
@@ -24,19 +25,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: transparent;
   color: var(--color-text-primary);
-  transition: all 0.2s ease;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
 
   &:hover {
     background-color: var(--color-bg-hover);
+    border-color: var(--color-border-strong);
   }
 }
 
 .divider {
   width: 1px;
-  height: 32px;
+  height: 28px;
   background-color: var(--color-border);
 }
 
@@ -61,44 +67,46 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
   flex: 1;
+  min-width: 0;
 }
 
 .status-chip {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .pulse-dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   background-color: var(--color-success);
   border-radius: 50%;
-  animation: pulse 2s infinite;
+  animation: pulse-anim 2s infinite;
+  flex-shrink: 0;
 }
 
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
+@keyframes pulse-anim {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
 }
 
 .case-id {
-  font-family: 'Courier New', monospace;
-  font-size: 12px;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 11px;
   font-weight: 600;
-  color: var(--color-text-secondary);
-  letter-spacing: 0.5px;
+  color: var(--color-text-tertiary);
+  letter-spacing: 0.06em;
   flex-shrink: 0;
+
+  // Hide on small screens
+  @media (max-width: 540px) {
+    display: none;
+  }
 }
 
 .icon-button {
@@ -106,52 +114,65 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 40px;
-  height: 40px;
-  color: var(--color-text-primary);
-  transition: all 0.2s ease;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
 
   &:hover {
     background-color: var(--color-bg-hover);
+    color: var(--color-text-primary);
+    border-color: var(--color-border-strong);
   }
 
   svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 }
 
 .notifications-button {
   position: relative;
+
+  // Hide on very small screens
+  @media (max-width: 400px) {
+    display: none;
+  }
 }
 
 .notification-dot {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 8px;
-  height: 8px;
+  top: 7px;
+  right: 7px;
+  width: 7px;
+  height: 7px;
   background-color: var(--color-danger);
   border-radius: 50%;
-  border: 2px solid var(--color-bg-primary);
+  border: 1.5px solid var(--color-bg-primary);
 }
 
 .avatar {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
   border-radius: 50%;
   color: white;
-  font-weight: 600;
-  font-size: 12px;
+  font-weight: 700;
+  font-size: 11px;
   flex-shrink: 0;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.06);
+    box-shadow: 0 0 0 2px rgba(0, 194, 255, 0.3);
   }
 }

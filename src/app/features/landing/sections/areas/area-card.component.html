@@ -6,10 +6,7 @@
 >
   <div class="area-card__header">
     <div class="area-card__icon">
-      <i [class]="'icon icon-' + area.icon"></i>
-    </div>
-    <div class="area-card__count">
-      {{ formatCount(area.count) }}
+      <span class="material-symbols-outlined">{{ area.icon }}</span>
     </div>
   </div>
 
@@ -20,10 +17,4 @@
     </p>
   </div>
 
-  <div class="area-card__footer" *ngIf="area.featured">
-    <button class="area-card__cta">
-      Ver más
-      <i class="icon icon-arrow-right"></i>
-    </button>
-  </div>
 </div>

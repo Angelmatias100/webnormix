@@ -12,10 +12,33 @@
   --indigo-soft: rgba(79, 70, 229, 0.18);
   --amber: #F59E0B;
   --rose: #F43F5E;
+  --green: #10B981;
+  --orange: #F59E0B;
+  --red: #F43F5E;
   --fg: #F8FAFC;
+  --fg-0: #F8FAFC;
   --fg-2: #C7D0DE;
   --fg-3: #94A3B8;
   --fg-4: #64748B;
+
+  // Background aliases
+  --bg-0: #070C18;
+  --bg-1: #0B1220;
+  --bg-2: #111827;
+  --bg-3: #131D30;
+
+  // Border aliases
+  --border-1: rgba(255, 255, 255, 0.06);
+  --border-2: rgba(255, 255, 255, 0.10);
+  --border-3: rgba(255, 255, 255, 0.16);
+
+  // Spacing numeric aliases (8px base)
+  --spacing-1: 8px;
+  --spacing-2: 12px;
+  --spacing-3: 16px;
+  --spacing-4: 24px;
+  --spacing-5: 32px;
+  --spacing-6: 48px;
 
   // Spacing (8px base)
   --spacing-xs: 4px;
@@ -40,6 +63,22 @@
 
   // Container
   --container: 1280px;
+
+  // Assistant color aliases (mapped to Normix design tokens)
+  --color-bg-primary:      #0B1220;
+  --color-bg-secondary:    #111827;
+  --color-bg-tertiary:     #131D30;
+  --color-bg-hover:        rgba(255, 255, 255, 0.04);
+  --color-border:          rgba(255, 255, 255, 0.07);
+  --color-border-strong:   rgba(255, 255, 255, 0.13);
+  --color-text-primary:    #F8FAFC;
+  --color-text-secondary:  #94A3B8;
+  --color-text-tertiary:   #64748B;
+  --color-primary:         #00C2FF;
+  --color-accent:          #6366F1;
+  --color-success:         #10B981;
+  --color-danger:          #F43F5E;
+  --color-warning:         #F59E0B;
 }
 
 * {

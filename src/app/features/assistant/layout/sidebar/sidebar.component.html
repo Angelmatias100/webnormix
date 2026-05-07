@@ -1,34 +1,60 @@
 <aside class="sidebar">
-  <button class="new-analysis-btn" (click)="newAnalysis()">
-    <span class="plus-icon">+</span>
+
+  <!-- Logo -->
+  <div class="sidebar__logo">
+    <div class="sidebar__logo-icon">
+      <span class="material-symbols-outlined">shield</span>
+    </div>
+    <span class="sidebar__logo-name">Normix</span>
+  </div>
+
+  <!-- New analysis -->
+  <button class="sidebar__new-btn" (click)="selectCategory(activeCategory)">
+    <span class="material-symbols-outlined">add</span>
     Nuevo análisis
   </button>
 
-  <div class="navigator-section">
-    <h3 class="section-title">Intelligence Navigator</h3>
-    <div class="categories">
+  <!-- Categories -->
+  <nav class="sidebar__section">
+    <p class="sidebar__section-label">Categorías</p>
+    <div class="sidebar__list">
       <button
-        *ngFor="let category of categories"
-        [class.active]="activeCategory === category.id"
-        (click)="selectCategory(category.id)"
-        class="category-button"
+        *ngFor="let cat of categories"
+        class="sidebar__item"
+        [class.sidebar__item--active]="activeCategory === cat.id"
+        (click)="selectCategory(cat.id)"
       >
-        <span class="icon">{{ category.icon }}</span>
-        <span class="label">{{ category.name }}</span>
+        <span class="material-symbols-outlined sidebar__item-icon">{{ cat.icon }}</span>
+        <span class="sidebar__item-label">{{ cat.name }}</span>
       </button>
     </div>
+  </nav>
+
+  <!-- Recent -->
+  <nav class="sidebar__section sidebar__section--grow">
+    <p class="sidebar__section-label">Recientes</p>
+    <div class="sidebar__list">
+      <button
+        *ngFor="let a of recentAnalyses"
+        class="sidebar__item sidebar__item--recent"
+        [class.sidebar__item--active]="a.active"
+      >
+        <span class="material-symbols-outlined sidebar__item-icon">chat_bubble</span>
+        <div class="sidebar__recent-info">
+          <span class="sidebar__recent-title">{{ a.title }}</span>
+          <span class="sidebar__recent-date">{{ a.date }}</span>
+        </div>
+        <span *ngIf="a.active" class="sidebar__active-dot"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Footer: back to home -->
+  <div class="sidebar__footer">
+    <button class="sidebar__back-btn" (click)="goHome()">
+      <span class="material-symbols-outlined">arrow_back</span>
+      Volver al inicio
+    </button>
   </div>
 
-  <div class="recent-section">
-    <h3 class="section-title">Análisis Recientes</h3>
-    <div class="recent-list">
-      <button *ngFor="let analysis of recentAnalyses" class="recent-item" [class.active]="analysis.active">
-        <div class="recent-info">
-          <div class="recent-title">{{ analysis.title }}</div>
-          <div class="recent-date">{{ analysis.date }}</div>
-        </div>
-        <span *ngIf="analysis.active" class="active-indicator"></span>
-      </button>
-    </div>
-  </div>
 </aside>
